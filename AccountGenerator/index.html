@@ -1,45 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accountnaam generator</title>
-</head>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 50px auto;
-        }
 
-        input, button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
+    <style>
+        * {
             box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f3f6fa;
+            font-family: "Segoe UI", Arial, sans-serif;
+            color: #1f2937;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 520px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 2rem;
+            text-align: center;
+            color: #1e3a8a;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 35px;
+            font-size: 0.95rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            margin-top: 18px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+        }
+
+        button {
+            width: 100%;
+            margin-top: 28px;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: #2563eb;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
         #resultaat {
-            margin-top: 20px;
-            font-size: 1.3em;
+            margin-top: 30px;
+            padding: 18px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 1.3rem;
             font-weight: bold;
+            color: #1e40af;
+            min-height: 65px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder {
+            color: #9ca3af;
+            font-weight: normal;
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
 
-    <h1>Gebruikersnaam Generator</h1>
-    <p><i>Gebasseerd op de versie van vbrh-immalle.</i></p>
+    <div class="container">
+        <h1>Gebruikersnaam Generator</h1>
+        <p class="subtitle">Gebaseerd op de versie van vbrh-immalle</p>
 
-    <label>Voornaam</label>
-    <input type="text" id="voornaam">
+        <label for="voornaam">Voornaam</label>
+        <input type="text" id="voornaam" placeholder="Bijv. Jan">
 
-    <label>Achternaam</label>
-    <input type="text" id="achternaam">
+        <label for="achternaam">Achternaam</label>
+        <input type="text" id="achternaam" placeholder="Bijv. Van Boom">
 
-    <button onclick="maakGebruikersnaam()">Genereer</button>
+        <button onclick="maakGebruikersnaam()">Genereer</button>
 
-    <div id="resultaat"></div>
+        <div id="resultaat">
+            <span class="placeholder">De gegenereerde gebruikersnaam verschijnt hier</span>
+        </div>
+    </div>
 
     <script>
         function maakGebruikersnaam() {
@@ -56,9 +142,9 @@
             }
 
             let gebruikersnaam = `${voornaam}${initialen}-mk-mawm`;
-
             document.getElementById("resultaat").innerText = gebruikersnaam;
         }
     </script>
+
 </body>
 </html>
