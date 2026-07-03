@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accountnaam generator</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+
+        input, button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            box-sizing: border-box;
+        }
+
+        #resultaat {
+            margin-top: 20px;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Gebruikersnaam Generator</h1>
+    <p><i>Gebasseerd op de versie van vbrh-immalle.</i></p>
+
+    <label>Voornaam</label>
+    <input type="text" id="voornaam">
+
+    <label>Achternaam</label>
+    <input type="text" id="achternaam">
+
+    <button onclick="maakGebruikersnaam()">Genereer</button>
+
+    <div id="resultaat"></div>
+
+    <script>
+        function maakGebruikersnaam() {
+            let voornaam = document.getElementById("voornaam").value.trim();
+            let achternaam = document.getElementById("achternaam").value.trim();
+
+            let delen = achternaam.split(" ");
+            let initialen = "";
+
+            for (let deel of delen) {
+                if (deel.length > 0) {
+                    initialen += deel[0].toUpperCase();
+                }
+            }
+
+            let gebruikersnaam = `${voornaam}${initialen}-mk-mawm`;
+
+            document.getElementById("resultaat").innerText = gebruikersnaam;
+        }
+    </script>
+</body>
+</html>
